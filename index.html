@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="styles_first.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link href="65560e4de8f92a12879072943e5722d58ea6c84e/fonts/stylesheet.css" rel="stylesheet">
+</head>
+
+<style>
+html {
+  background: url(trees.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+
+	background-attachment: fixed;
+	
+}
+
+.box {
+	border-radius: 3px;
+	background: rgba(101, 101, 101, 0.7); margin: auto; padding: 20px;
+}
+
+.lightbox {
+	zoom: 1.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 10, 10, 0.8);
+	text-align: center;
+	margin: auto;
+
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+::-moz-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+</style>
+
+<body>
+	<div class="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+
+		<div id="loginbox" class="lightbox" >
+			<div class="horizontal">
+				<div class="vertical">
+					<div class = "center">Enter the high security password</div>
+					<div class="box">
+						<input style="margin: 15px; text-align: center;" id="password" type="password" placeholder="password" /> <br />
+						<button id="loginbutton" type="button">Enter</button>
+						<p id="wrongPassword" style="display: none">wrong password</p>
+					
+						
+					</div>
+					
+					<div class = "center_new">
+						<marquee style= color:white>This website is password protected. The website will be deactivate after 24 hours after the user views it..</marquee>
+						
+						<!---<audio controls loop>
+							<source src = "jetblackheart.mp3" type = "audio/mpeg">
+						
+					  	</audio>
+                    --->
+					  
+					</div>
+				
+				</div>
+				
+			 
+			</div>
+		
+		</div>
+	
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+
+	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
+
+	<script type="text/javascript">
+	"use strict";
+
+
+	function loadPage(pwd) {
+
+		var hash= pwd;
+		hash= Sha1.hash(pwd);
+		var url= hash + "/index.html";
+
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
+
+				window.location= url;
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+
+
+				parent.location.hash= hash;
+
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
+
+
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
+
+	</script>
+	<script>
+		setTimeout(() => {
+  		document.location.reload();
+		}, 300000);
+	</script>
+	<script>
+		var now = new Date();
+		var hours = now.getHours();
+		var minutes = now.getMinutes();
+		var ft = now.toLocaleString("en-US", {
+			hour: "numeric",
+			minute: "numeric",
+			hour12: true
+		});
+		if (0 <= minutes && minutes < 15) {//Morning
+			document.write('<html style="background: url(storm.jpg) no-repeat center center fixed;  background-size: cover; height: 100%;overflow: hidden">');
+			var type = "Morning";
+		}
+		if (15 <= minutes && minutes < 30) {//Day
+			document.write('<html style="background: url(newyork_lightning.jpg) no-repeat center center fixed;  background-size: cover; height: 100%;overflow: hidden">');
+			var type = "Daytime";
+		}
+		if (30 <= minutes && minutes < 45) {//Evening
+			document.write('<html style="background: url(thunder.jpg) no-repeat center center fixed;  background-size: cover; height: 100%;overflow: hidden">');
+			var type = "Evening";
+		}
+		if (45 <= minutes && minutes < 60) {//Night
+			document.write('<html style="background: url(sunset.jpg) no-repeat center center fixed;  background-size: cover; height: 100%;overflow: hidden">');
+			var type = "Nighttime";
+		}
+		document.getElementById("time").innerHTML = `The time is ${ft} it is ${type}`;
+		//CSS gradient backgrounds from https://uigradients.com
+	</script>
+	<script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
+</body>
+</html>
