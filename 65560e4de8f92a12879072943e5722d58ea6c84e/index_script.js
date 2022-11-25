@@ -7,6 +7,7 @@ const texts = [
     "Greetings, DEMI GOD!!!",
     "Welcome to Camp Half-Blood",
     "Caution Instructions",
+    "Put on your headphones",
     "Inorder to get into CABIN 6",
     "Click on I Agree!",
     "Lol, This will repeat again!",
