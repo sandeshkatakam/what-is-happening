@@ -4,14 +4,17 @@ const elts = {
 };
 
 const texts = [
-    "Greetings",
+    "Greetings, DEMI GOD!!!",
     "Welcome to Camp Half-Blood",
     "Caution Instructions",
-    "Click on agree to proceed",
-];
+    "Inorder to get into CABIN 6",
+    "Click on I Agree!",
+    "Lol, This will repeat again!",
+    "I don't know how to stop this!"
+]
 
-const morphTime = 6;
-const cooldownTime = 4;
+const morphTime = 2;
+const cooldownTime = 3;
 
 let textIndex = texts.length - 1;
 let time = new Date();

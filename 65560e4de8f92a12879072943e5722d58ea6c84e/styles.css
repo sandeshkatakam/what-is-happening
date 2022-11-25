@@ -12,13 +12,20 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
-    font-family:'Dancing Script', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-size: larger;
     font-weight: bolder;
     overflow: auto;
     
 }
-
+hr {
+  border: none;
+  border-top: 1px dotted #f00;
+  color: rgb(18, 17, 17);
+  background-color: rgb(14, 13, 13);
+  height: 2.5px;
+  width: 70%;
+}
 .content {
     max-width: 98.57rem;
     margin: 2rem auto;
